@@ -1,3 +1,8 @@
+window.GameState = window.GameState || {};
+window.GameState.started = true;
+window.electronAPI?.gameStarted?.();
+GameAudio?.stopMusic?.();
+
 const NewGameIntro = {
   subtitles: [
     { text: "Salom.", duration: 2600, delay: 1700 },
@@ -7,12 +12,16 @@ const NewGameIntro = {
   ],
 
   start() {
+    console.log("NewGameIntro started");
+
     const intro = document.createElement("div");
     intro.className = "new-game-intro cinematic-void";
+
     intro.innerHTML = `
       <div class="new-game-dust"></div>
       <div class="void-vignette"></div>
     `;
+
     document.body.appendChild(intro);
 
     GameAudio?.playVoice?.(GameAudio.voices.introUz);
@@ -42,11 +51,13 @@ const NewGameIntro = {
   showExitGuide() {
     const arrow = document.createElement("div");
     arrow.className = "exit-arrow";
+
     arrow.innerHTML = `
       <div class="exit-arrow-line"></div>
       <div class="exit-arrow-text">EXIT</div>
       <div class="alt-f4-hint">ALT + F4</div>
     `;
+
     document.body.appendChild(arrow);
 
     SubtitleManager.show("Try leaving.", 3000);

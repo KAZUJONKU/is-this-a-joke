@@ -12,8 +12,12 @@ const MainMenu = {
   SecretExit.reset();
   SecretExit.generate();
 
+  addTerminalLine("NEW GAME REQUEST RECEIVED");
+
   if (window.NewGameIntro) {
-    NewGameIntro.start();
+    window.NewGameIntro.start();
+  } else {
+    console.error("NewGameIntro.js yuklanmagan");
   }
 });
 
@@ -43,10 +47,15 @@ const MainMenu = {
     });
 
     this.buttons.exit = this.addButton(container, LanguageManager.t("exit"), "exitBtn", () => {
-      GameAudio.play("denied");
-      addTerminalLine("Exit request denied.");
-      alert("ACCESS DENIED\nComplete the game to unlock exit.");
-    });
+  if (!window.GameState?.started) {
+    window.electronAPI?.safeExit?.();
+    return;
+  }
+
+  GameAudio.play("denied");
+  addTerminalLine("Exit request denied.");
+  SubtitleManager.show("No.", 1800);
+});
 
     LanguageManager.applyMenuTexts();
   },

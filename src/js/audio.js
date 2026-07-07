@@ -111,3 +111,10 @@ sfxPreviewCooldown: false,
     }
   }
 };
+stopMusic() {
+  if (this.currentMusic) {
+    this.currentMusic.pause();
+    this.currentMusic.currentTime = 0;
+    this.currentMusic = null;
+  }
+},

@@ -1521,3 +1521,10 @@ body.cinematic-start {
   75% { transform: translateX(-1px); }
   100% { transform: translateX(0); }
 }
+
+#subtitleBox,
+.subtitle-box,
+.subtitle {
+  z-index: 10050 !important;
+  position: fixed !important;
+}
