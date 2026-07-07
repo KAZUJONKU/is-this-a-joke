@@ -109,12 +109,14 @@ sfxPreviewCooldown: false,
     if (this.currentMusic) {
       this.currentMusic.volume = this.getFinalVolume(this.musicVolume);
     }
-  }
-};
-stopMusic() {
+  },
+
+  stopMusic() {
   if (this.currentMusic) {
     this.currentMusic.pause();
     this.currentMusic.currentTime = 0;
     this.currentMusic = null;
   }
-},
+}
+};
+

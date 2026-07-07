@@ -2,7 +2,6 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
 let win;
-let allowExit = true;
 let gameStarted = false;
 
 function createWindow() {
@@ -22,16 +21,19 @@ function createWindow() {
   win.loadFile("index.html");
 
   win.on("close", (event) => {
-  if (gameStarted && !allowExit) {
-    event.preventDefault();
-    win.webContents.send("exit-blocked");
-  }
-});
+    if (gameStarted) {
+      event.preventDefault();
+      win.webContents.send("exit-blocked");
+    }
+  });
 }
+
+ipcMain.on("safe-exit", () => {
+  app.quit();
+});
 
 ipcMain.on("game-started", () => {
   gameStarted = true;
-  allowExit = false;
 });
 
 app.whenReady().then(createWindow);
