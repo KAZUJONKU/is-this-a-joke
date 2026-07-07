@@ -26,7 +26,8 @@ sfxPreviewCooldown: false,
   },
 
   voices: {
-  test: "assets/audio/sfx/test_sfx.mp3"
+  test: "assets/audio/sfx/test_sfx.mp3",
+  introUz: "assets/audio/voice/intro_uz.mp3"
 },
 
   getFinalVolume(channelVolume) {

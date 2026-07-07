@@ -12,37 +12,9 @@ const MainMenu = {
   SecretExit.reset();
   SecretExit.generate();
 
-  const card = document.querySelector(".menu-card");
-  const flash = document.getElementById("glitchFlash");
-  const transition = document.getElementById("screenTransition");
-
-  GameAudio.play("warning");
-  addTerminalLine("START REQUEST RECEIVED");
-  addTerminalLine("PLAYER IDENTITY: UNKNOWN");
-  addTerminalLine("JOKE.EXE IS WATCHING");
-
-  document.body.classList.add("cinematic-start");
-  card?.classList.add("menu-card-starting");
-
-  flash?.classList.add("active");
-
-  setTimeout(() => {
-    flash?.classList.remove("active");
-    GameAudio.play("glitch");
-    SubtitleManager.show("Do you think this is just a game?", 3500);
-  }, 350);
-
-  setTimeout(() => {
-    addTerminalLine("REALITY CHECK FAILED");
-    transition?.classList.add("active", "signal");
-  }, 900);
-
-  setTimeout(() => {
-    transition?.classList.remove("active", "signal");
-    document.body.classList.remove("cinematic-start");
-    card?.classList.remove("menu-card-starting");
-    SubtitleManager.show("Then prove it.", 3000);
-  }, 1900);
+  if (window.NewGameIntro) {
+    NewGameIntro.start();
+  }
 });
 
     this.buttons.settings = this.addButton(container, LanguageManager.t("settings"), "settingsBtn", () => {
