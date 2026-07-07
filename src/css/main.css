@@ -1227,3 +1227,38 @@ body.pulse-red::after {
 .audio-row input[type="range"] {
   width: 100%;
 }
+
+body.cinematic-start {
+  animation: bodyCinematicShake 0.12s infinite;
+}
+
+.menu-card-starting {
+  animation: menuStartCollapse 1.9s ease forwards !important;
+}
+
+@keyframes bodyCinematicShake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-3px, 2px); }
+  50% { transform: translate(3px, -2px); }
+  75% { transform: translate(-2px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes menuStartCollapse {
+  0% {
+    transform: scale(1);
+    filter: blur(0) contrast(1);
+  }
+  25% {
+    transform: scale(1.03) rotate(-0.4deg);
+    filter: blur(1px) contrast(1.6);
+  }
+  55% {
+    transform: scale(0.96) rotate(0.6deg);
+    filter: blur(2px) contrast(2.2) saturate(1.8);
+  }
+  100% {
+    transform: scale(1);
+    filter: blur(0) contrast(1);
+  }
+}
