@@ -1,0 +1,14 @@
+{
+  "name": "is-this-a-joke",
+  "version": "1.0.0",
+  "description": "Prank game",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "KAZU",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^42.6.0"
+  }
+}

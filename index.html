@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Is This a Joke?</title>
+    <link rel="stylesheet" href="./src/css/main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="atmosphereCanvas"></canvas>
+      <div id="screenTransition"></div>
+
+      <div class="bg-grid"></div>
+      <div class="bg-noise"></div>
+      <div class="bg-scanline"></div>
+      <div class="bg-vignette"></div>
+      <div id="mouseLight"></div>
+      <div id="customCursor"></div>
+      <div id="subtitleBox"></div>
+
+      <div id="glitchFlash"></div>
+
+      <div id="fakePopup" class="fake-popup">
+        <div class="fake-popup-title">SYSTEM WARNING</div>
+        <div id="fakePopupText">Unknown process detected.</div>
+      </div>
+
+      <section id="loadingScreen" class="screen active">
+        <div class="glitch-title" data-text="IS THIS A JOKE?">
+          IS THIS A JOKE?
+        </div>
+
+        <div class="loading-box">
+          <div id="loadingText">Initializing joke.exe...</div>
+          <div class="loading-bar">
+            <div id="loadingFill"></div>
+          </div>
+          <div id="loadingPercent">0%</div>
+        </div>
+
+        <div id="terminalLines" class="terminal"></div>
+      </section>
+
+      <section id="mainMenu" class="screen">
+        <div class="menu-card">
+          <div class="menu-small-title">KAZU STUDIO PRESENTS</div>
+
+          <div class="menu-title glitch-title" data-text="IS THIS A JOKE?">
+            IS THIS A JOKE?
+          </div>
+
+          <div class="menu-subtitle">Complete the game to unlock the truth</div>
+
+          <div id="mainMenuButtons" class="menu-buttons"></div>
+        </div>
+
+        <div class="version">v1.0.0</div>
+        <div class="studio">© KAZU STUDIO</div>
+      </section>
+    </div>
+
+<script src="./src/js/audio.js"></script>
+<script src="./src/engine/TransitionEngine.js"></script>
+<script src="./src/engine/ScreenManager.js"></script>
+
+<script src="./data/translations.js"></script>
+<script src="./src/engine/LanguageManager.js"></script>
+<script src="./src/engine/SecretExit.js"></script>
+<script src="./src/engine/KeyboardManager.js"></script>
+<script src="./src/engine/SubtitleManager.js"></script>
+
+<script src="./src/ui/GameButton.js"></script>
+<script src="./src/ui/GameWindow.js"></script>
+<script src="./src/ui/Popup.js"></script>
+<script src="./src/ui/GameSelect.js"></script>
+<script src="./src/ui/SettingsMenu.js"></script>
+<script src="./src/ui/MainMenu.js"></script>
+
+<script src="./src/js/ui.js"></script>
+<script src="./src/js/keyboard.js"></script>
+<script src="./src/js/game.js"></script>
+<script src="./src/js/atmosphere.js"></script>
+  </body>
+</html>
